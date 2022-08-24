@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express'
 import { createRoutes } from './routes'
 import { umzug } from './migrator'
