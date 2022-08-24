@@ -141,16 +141,18 @@ There are a couple of key decisions made during the development
 
 2. For getting the last git commit sha, I make the build to generate a commit sha file instead of having the API server run the `git` command. This will be more in line with the real-world scenario where you won't include your git files (i.e. the `.git` folder and the git package) in your production image.
 
-3. For testing, I have chosen to build both Unit Testing and Behaviour Driven Development (BDD) Testing (a.k.a. End-to-End Testing). Unit Testing covers the core logic of the application and only focuses to test a single function. Whereas BDD Testing is focusing on the whole integration. From the request to the response. Due to time constant, I did not implement rich test cases. Testing in the application is to demonstrate the idea behind two different tests and can be expanded further.
+3. To simplify the implementation, I have made the application to run database migration as part of the startup process. In a real-world scenario, the database migration should be running either inside a CI/CD agent or using Helm hook to trigger the migration before deployment.
 
-4. Production image has some basic minification implemented:
+4. For testing, I have chosen to build both Unit Testing and Behaviour Driven Development (BDD) Testing (a.k.a. End-to-End Testing). Unit Testing covers the core logic of the application and only focuses to test a single function. Whereas BDD Testing is focusing on the whole integration. From the request to the response. Due to time constant, I did not implement rich test cases. Testing in the application is to demonstrate the idea behind two different tests and can be expanded further.
+
+5. Production image has some basic minification implemented:
 
   - It has a builder stage which contains the dev tool to build the application
   - It has a 2nd stage which uses Distroless image with non-production packages removed
 
       Further enhancement can be made (e.g. Tree Shaking, Code Spliting, Minify, etc). This usually needs when your application is a giant monolith which cannot be easily fit into a single reasonable-sized docker image.
 
-5. Ts-standard is chosen as the linting tool just because of its simple configuration. In real world senario, you would probably want to config your own rules (e.g. enforce the use of semi-colon)
+6. Ts-standard is chosen as the linting tool just because of its simple configuration. In real world senario, you would probably want to config your own rules (e.g. enforce the use of semi-colon)
 
 # Folder Structure
 
