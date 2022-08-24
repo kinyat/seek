@@ -1,3 +1,3 @@
-import { initialise as initialiseMetadata } from "./metadata";
+import { initialise as initialiseMetadata } from './metadata'
 
 void initialiseMetadata()

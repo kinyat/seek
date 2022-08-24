@@ -5,7 +5,7 @@ class Metadata extends Model<InferAttributes<Metadata>, InferCreationAttributes<
   declare count: number
 }
 
-const initialise = async () => {
+const initialise = async (): Promise<void> => {
   Metadata.init({
     count: {
       type: DataTypes.INTEGER,

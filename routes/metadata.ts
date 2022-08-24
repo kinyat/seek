@@ -7,12 +7,14 @@ interface IMetadataResponse {
 }
 
 const createRoutes = (app: Express): void => {
-  app.get('/metadata', async (_, resp) => {
-    const respBody: IMetadataResponse = {
-      gitsha: getLastGitCommitSHA(),
-      count: await increaseCount()
-    }
-    resp.status(200).json(respBody)
+  app.get('/metadata', (_, resp) => {
+    void (async () => {
+      const respBody: IMetadataResponse = {
+        gitsha: getLastGitCommitSHA(),
+        count: await increaseCount()
+      }
+      resp.status(200).json(respBody)
+    })()
   })
 }
 
