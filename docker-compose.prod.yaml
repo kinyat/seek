@@ -3,6 +3,8 @@ version: "3.9"
 
 services:
   app:
+    depends_on:
+      - db
     image: seek:latest
     ports:
       - 3333:3333

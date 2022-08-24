@@ -15,7 +15,7 @@ RUN npm run build
 
 RUN npm prune --production
 
-RUN git rev-parse HEAD | tee /code/dist/app/meta/gitsha
+RUN git rev-parse HEAD | tee /code/dist/app/metadata/gitsha
 
 FROM gcr.io/distroless/nodejs-debian11
 
