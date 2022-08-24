@@ -1,5 +1,5 @@
 import { Express } from 'express'
-import { getLastGitCommitSHA, increaseCount } from '../app/meta/meta'
+import { getLastGitCommitSHA, increaseCount } from '../app/metadata/metadata'
 
 interface IMetadataResponse {
   gitsha: string
