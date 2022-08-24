@@ -9,8 +9,10 @@ const umzug = new Umzug({
   logger: console
 })
 
-exports.umzug = umzug
-
 if (require.main === module) {
   void umzug.runAsCLI()
+}
+
+export {
+  umzug
 }

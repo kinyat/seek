@@ -1,5 +1,7 @@
 {
   "name": "seek",
+  "author": "Eric Chan",
+  "license": "UNLICENSED",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -14,8 +16,6 @@
     "migrate:up": "npm run dc:run -- ts-node ./migrator.ts up",
     "migrate:down": "npm run dc:run -- ts-node ./migrator.ts down"
   },
-  "author": "Eric Chan",
-  "license": "UNLICENSED",
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^18.7.13",

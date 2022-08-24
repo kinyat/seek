@@ -1,11 +1,20 @@
 import express from 'express'
 import { createRoutes } from './routes'
+import { umzug } from './migrator'
 
-const app = express()
-const port = 3333
+void (async () => {
+  // make sure database is always up-to-date
+  // in real world scenario this process usually will either
+  //   1. run in CI/CD
+  //   2. triggered by helm hook and run as a job
+  await umzug.up()
 
-createRoutes(app)
+  const app = express()
+  const port = 3333
 
-app.listen(port, () => {
-  console.log(`server is running on port ${port}`)
-})
+  createRoutes(app)
+
+  app.listen(port, () => {
+    console.log(`server is running on port ${port}`)
+  })
+})()

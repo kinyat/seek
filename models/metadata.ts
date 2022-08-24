@@ -5,8 +5,8 @@ const Metadata = sequelize.define('Metadata', {
   count: {
     type: DataTypes.INTEGER,
     allowNull: false
-  },
-});
+  }
+})
 
 Metadata.removeAttribute('id')
 
