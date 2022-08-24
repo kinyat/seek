@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "build": "tsc",
     "lint": "ts-standard",
     "lint:fix": "ts-standard --fix",
     "start": "nodemon index.ts",
