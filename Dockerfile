@@ -1,5 +1,7 @@
 FROM node:16.17.0-alpine3.15 AS builder
 
+RUN apk add --no-cache git
+
 WORKDIR /code
 
 COPY package.json /code
@@ -12,6 +14,8 @@ COPY . /code
 RUN npm run build
 
 RUN npm prune --production
+
+RUN git rev-parse HEAD | tee /code/dist/app/meta/gitsha
 
 FROM gcr.io/distroless/nodejs-debian11
 
