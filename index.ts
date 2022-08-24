@@ -14,6 +14,8 @@ void (async () => {
   const app = express()
   const port = 3333
 
+  app.use(express.json())
+
   createRoutes(app)
 
   app.listen(port, () => {

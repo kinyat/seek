@@ -1,25 +1,24 @@
-import { When, Then, Given } from '@cucumber/cucumber'
+import { When, Then } from '@cucumber/cucumber'
 import { hostUrl } from './global'
 import axios from 'axios'
 import expect from 'expect'
-import { ModernFakeTimers } from '@jest/fake-timers'
 
-When('I send a {string} request to {string}', async function (method, endpoint) {
+When('I send a {string} request to {string}', async function (method: string, endpoint: string) {
   this.response = await axios({
     method,
     url: `${hostUrl}${endpoint}`
   })
-});
+})
 
-Then('I should have received {string} HTTP code', function (code) {
+Then('I should have received {string} HTTP code', function (code: string) {
   expect(this.response.status).toBe(+code)
-});
+})
 
-Then('I should received the following json', function (json) {
+Then('I should received the following json', function (json: string) {
   const expected = JSON.parse(json)
   expect(this.response.data.json).toEqual(expected)
-});
+})
 
-Then('the response I received should contain {string}', function (response) {
+Then('the response I received should contain {string}', function (response: string) {
   expect(this.response.data).toContain(response)
-});
+})
