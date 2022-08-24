@@ -1,28 +1,35 @@
-import { DataTypes } from 'sequelize'
+import { Model, InferAttributes, InferCreationAttributes, DataTypes } from 'sequelize'
 import { sequelize } from '../sequelize'
 
-const Metadata = sequelize.define('Metadata', {
-  count: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  }
-})
+class Metadata extends Model<InferAttributes<Metadata>, InferCreationAttributes<Metadata>> {
+  declare count: number
+}
 
-Metadata.removeAttribute('id')
+const initialise = async () => {
+  Metadata.init({
+    count: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
+  }, { sequelize })
 
-const increaseCount = async () => {
+  Metadata.removeAttribute('id')
+}
+
+const increaseCount = async (): Promise<number> => {
   let metadata = await Metadata.findOne()
 
-  if (!metadata) {
+  if (metadata == null) {
     metadata = await Metadata.create({ count: 0 })
   }
 
   const result = await metadata.increment(['count'], { by: 1 })
 
-  return (result as unknown as typeof Metadata).count
+  return result.count
 }
 
 export {
   Metadata,
-  increaseCount
+  increaseCount,
+  initialise
 }

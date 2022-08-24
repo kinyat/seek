@@ -1,4 +1,3 @@
-
 import { Express } from 'express'
 
 const createRoutes = (app: Express): void => {
