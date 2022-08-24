@@ -34,7 +34,7 @@ An Express API server expose the following endpoints:
 
 2. run `cp .env.example .env`
 
-3. run `docker-comnpose up`
+3. run `docker-compose up`
 
 # Development Commands
 
