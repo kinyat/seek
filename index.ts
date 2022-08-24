@@ -7,5 +7,5 @@ const port = 3333
 createRoutes(app)
 
 app.listen(port, () => {
-  console.log(`Timezones by location application is running on port ${port}.`)
+  console.log(`server is running on port ${port}`)
 })

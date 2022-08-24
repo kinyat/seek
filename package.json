@@ -9,7 +9,10 @@
     "lint:fix": "ts-standard --fix",
     "start": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "ts-node ./migrator.ts"
+    "shell": "docker-compose run --rm app /bin/sh",
+    "dc:run": "docker-compose run --rm app npm run env --",
+    "migrate:up": "npm run dc:run -- ts-node ./migrator.ts up",
+    "migrate:down": "npm run dc:run -- ts-node ./migrator.ts down"
   },
   "author": "Eric Chan",
   "license": "UNLICENSED",
