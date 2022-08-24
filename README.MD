@@ -142,9 +142,11 @@ There are a couple of key decisions made during the development
 2. For testing, I have chosen to build both Unit Testing and Behaviour Driven Development (BDD) Testing (a.k.a. End-to-End Testing). Unit Testing covers the core logic of the application and only focuses to test a single function. Whereas BDD Testing is focusing on the whole integration. From the request to the response. Due to time constant, I did not implement rich test cases. Testing in the application is to demonstrate the idea behind two different tests and can be expanded further.
 
 3. Production image has some basic minification implemented:
-It has a builder stage which contains the dev tool to build the application
-It has a 2nd stage which uses Distroless image with non-production packages removed
-Further enhancement can be made (e.g. Tree Shaking, Code Spliting, Minify, etc). This usually needs when your application is a giant monolith which cannot be easily fit into a single reasonable-sized docker image.
+
+  - It has a builder stage which contains the dev tool to build the application
+  - It has a 2nd stage which uses Distroless image with non-production packages removed
+
+      Further enhancement can be made (e.g. Tree Shaking, Code Spliting, Minify, etc). This usually needs when your application is a giant monolith which cannot be easily fit into a single reasonable-sized docker image.
 
 4. Ts-standard is chosen as the linting tool just because of its simple configuration. In real world senario, you would probably want to config your own rules (e.g. enforce the use of semi-colon)
 
