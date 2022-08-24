@@ -2,3 +2,11 @@ version: "3.9"
 
 services:
   app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/code
+    ports:
+      - 3333:3333
+    command: /bin/sh -c "npm install && npm run start"
