@@ -12,17 +12,18 @@ An Express API server expose the following endpoints:
 - [Table of Contents](#table-of-contents)
 - [Getting Started](#getting-started)
 - [Development Commands](#development-commands)
-      - [Linting](#linting)
-      - [Linting (Autofix)](#linting-autofix)
-      - [Run Unit Test](#run-unit-test)
-      - [Run BDD/E2E Test](#run-bdde2e-test)
-      - [Run migration](#run-migration)
-        - [Migrate](#migrate)
-        - [Rollback](#rollback)
+  - [Linting](#linting)
+  - [Linting (Autofix)](#linting-autofix)
+  - [Run Unit Test](#run-unit-test)
+  - [Run BDD/E2E Test](#run-bdde2e-test)
+  - [Run migration](#run-migration)
+    - [Migrate](#migrate)
+    - [Rollback](#rollback)
+  - [Gain Shell Access in API Server](#gain-shell-access-in-api-server)
 - [Production Commands](#production-commands)
-      - [Build Production Image](#build-production-image)
-      - [Run Production Image Locally](#run-production-image-locally)
-  - [Resource Calculation](#resource-calculation)
+  - [Build Production Image](#build-production-image)
+  - [Run Production Image Locally](#run-production-image-locally)
+- [Resource Calculation](#resource-calculation)
 
 # Getting Started
 
@@ -34,54 +35,59 @@ An Express API server expose the following endpoints:
 
 # Development Commands
 
-#### Linting
+## Linting
 
 ```
 npm run lint
 ```
 
-#### Linting (Autofix)
+## Linting (Autofix)
 
 ```
 npm run lint:fix
 ```
 
-#### Run Unit Test
+## Run Unit Test
 
 ```
 npm run test:unit
 ```
 
-#### Run BDD/E2E Test
+## Run BDD/E2E Test
 
 1. run `docker-compose up` to spin up a local instance
 
 2. run `npm run test:bdd`
 
+## Run migration
 
-#### Run migration
-
-##### Migrate
+### Migrate
 
 ```
 npm run migrate:up
 ```
 
-##### Rollback
+### Rollback
 
 ```
 npm run migrate:down
 ```
 
+## Gain Shell Access in API Server
+
+```
+npm run shell
+```
+
 # Production Commands
 
-#### Build Production Image
+## Build Production Image
 
 1. Run `./scripts/build-docker-prod.sh`
 
 2. It will build an image called "seek:latest"
 
-#### Run Production Image Locally
+## Run Production Image Locally
 
 1. First, [Build Production Image](#build-production-image)
 
@@ -89,7 +95,7 @@ npm run migrate:down
 
 3. It will run the production images locally
 
-## Resource Calculation
+# Resource Calculation
 
 Endpoint: `POST /calculate`
 
